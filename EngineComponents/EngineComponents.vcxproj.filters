@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="Console.cpp" />
+    <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="Component.cpp">
+      <Filter>Objects</Filter>
+    </ClCompile>
+    <ClCompile Include="ComponentHealth.cpp">
+      <Filter>Objects\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="ComponentStats.cpp">
+      <Filter>Objects\Components</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Console.h" />
+    <ClInclude Include="Engine.h" />
+    <ClInclude Include="GameObject.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Component.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="Objects.h">
+      <Filter>Objects</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentHealth.h">
+      <Filter>Objects\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentStats.h">
+      <Filter>Objects\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="Components.h">
+      <Filter>Objects\Components</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Objects">
+      <UniqueIdentifier>{4cdd57b8-f0d8-4b7a-9859-60108182d5d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Objects\Components">
+      <UniqueIdentifier>{cf64322d-73f6-4c65-8642-40df3955c9fd}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
