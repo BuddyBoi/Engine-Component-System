@@ -9,7 +9,7 @@ class CGameObject
 {
 public:
 	CGameObject();
-	CGameObject( int id );
+	CGameObject( const int id, const EObjectType objType, const std::string& objTag = "none" );
 	void Run();
 	int GetInstance() const;
 	std::string GetTag() const;
@@ -31,7 +31,7 @@ public:
 
 		for ( const auto& component : this->components )
 		{
-			//try to cast over to templated type, will automatically compare sizes
+			//try to cast over to templated type, will automatically compare datatypes
 			if ( auto testCastType = std::dynamic_pointer_cast<T>(component) )
 				return testCastType;
 		}
@@ -67,5 +67,6 @@ public:
 private:
 	int instance = 0;
 	std::string tag = "none";
+	EObjectType type = EObjectType::ObjType_Invalid;
 	std::vector<std::shared_ptr<CComponent>> components;
 };

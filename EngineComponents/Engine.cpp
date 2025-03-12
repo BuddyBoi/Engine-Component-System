@@ -1,6 +1,6 @@
 #include "Engine.h"
 
-//temp global storage
+//temp global storage - TODO: add CObjectManager
 std::vector<std::shared_ptr<CGameObject>> gameObjects{};
 std::shared_ptr<CGameObject> player = nullptr;
 
@@ -9,16 +9,50 @@ CEngine::CEngine()
 
 }
 
-//create objects
-void ObjectFactory( std::string name, int objType = 1 )
+//get objects; 
+//TODO: support multiple objects of the same name i.e. enemy, enemy, enemy without naming them enemy1, enemy2, etc.
+std::shared_ptr<CGameObject> GetGameObject( std::string tag )
 {
+    if ( !tag.size() )
+        return nullptr;
+
+    for ( auto object : gameObjects )
+    {
+        if ( object->GetTag() == tag )
+        {
+            return object;
+        }
+    }
+
+    return nullptr;
+}
+
+//create objects
+void ObjectFactory( const std::string& name, const EObjectType type = ObjType_Invalid)
+{
+    if ( !type )
+        //assert "invalid object type" ?
+        return;
+
     int index = gameObjects.size() + 1;
     auto object = std::make_shared<CGameObject>( index );
 
     //Character, needs health component
-    if ( objType == 1 )
+    if ( type == ObjType_Pawn )
     {
-        auto compHealth = std::make_shared<CComponentHealth>( 10, object, 100.0f );
+        if ( std::shared_ptr<CGameObject> ptr = GetGameObject( "player" ) )
+        {
+            printf( "PLAYER ALREADY EXISTS\n" );
+            return;
+        }
+
+        auto objHealth = std::make_shared<CComponentHealth>( 10, object, 100.0f );
+        auto objStats = std::make_shared<CComponentStats>( 20, object );
+
+        object->AddComponent( objHealth );
+        object->AddComponent( objStats );
+
+        gameObjects.push_back( object );
     }
 }
 
@@ -31,6 +65,8 @@ void CEngine::Setup()
 
 void CEngine::Run()
 {
+    this->Setup();
+
     //ObjectList / EntityList
     std::vector<std::shared_ptr<CGameObject>> EntityList;
 

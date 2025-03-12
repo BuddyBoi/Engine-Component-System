@@ -1,10 +1,14 @@
 #include "GameObject.h"
 
 CGameObject::CGameObject()
-{}
+{
 
-CGameObject::CGameObject( const int id ) : instance( id )
-{}
+}
+
+CGameObject::CGameObject( const int id, const EObjectType objType, const std::string& objTag ) : instance( id ), tag(objTag), type( objType )
+{
+
+}
 
 void CGameObject::Run()
 {
