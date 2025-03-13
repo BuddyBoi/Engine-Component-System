@@ -9,7 +9,7 @@ CComponentHealth::CComponentHealth( int id, std::shared_ptr<CGameObject> parent,
 
 void CComponentHealth::Run()
 {
-	printf( "Component HEALTH DbgPrint: Parent: %i, Health: %f, HealthMax: %f\n", this->GetGameObject()->GetInstance(), this->health, this->healthMax );
+	printf( "Component HEALTH DbgPrint: Parent: %i, Name: %s, Health: %f, HealthMax: %f\n", this->GetGameObject()->GetInstance(), this->GetGameObject()->GetTag().c_str(), this->health, this->healthMax);
 }
 
 float CComponentHealth::GetHealth() const
