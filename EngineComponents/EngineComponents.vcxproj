@@ -21,21 +21,26 @@
   <ItemGroup>
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="ComponentHealth.cpp" />
+    <ClCompile Include="ComponentPosition.cpp" />
     <ClCompile Include="ComponentStats.cpp" />
     <ClCompile Include="Console.cpp" />
     <ClCompile Include="Engine.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Vector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Component.h" />
     <ClInclude Include="ComponentHealth.h" />
+    <ClInclude Include="ComponentPosition.h" />
     <ClInclude Include="Components.h" />
     <ClInclude Include="ComponentStats.h" />
     <ClInclude Include="Console.h" />
     <ClInclude Include="Engine.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Objects.h" />
+    <ClInclude Include="Structs.h" />
+    <ClInclude Include="Vector2D.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>

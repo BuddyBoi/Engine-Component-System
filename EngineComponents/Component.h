@@ -1,9 +1,6 @@
 #pragma once
 #include "Objects.h"
 
-#include <memory>
-#include <string>
-
 class CComponent
 {
 public:	

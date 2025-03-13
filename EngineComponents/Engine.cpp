@@ -1,4 +1,5 @@
 #include "Engine.h"
+#include <Windows.h>
 
 //temp global storage - TODO: add CObjectManager
 std::vector<std::shared_ptr<CGameObject>> gameObjects{};
