@@ -9,7 +9,7 @@ public:
 	void Run();
 	int GetInstance() const;
 	std::string GetTag() const;
-
+	EObjectType GetType() const;
 	bool AddComponent( std::shared_ptr<CComponent> component ); //add existing component object
 	bool RemoveComponent( const int id ); //remove component by index
 	bool RemoveComponent( const EComponentType type ); //remove component by type

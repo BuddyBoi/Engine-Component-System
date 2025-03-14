@@ -1,24 +1,16 @@
 #pragma once
 #include "Objects.h"
+#include "Vector2D.h"
 
 class CComponentPosition : public CComponent
 {
 public:
-private:
-    
-};
-
-class CComponentHealth : public CComponent
-{
-public:
-    CComponentHealth( int id, std::shared_ptr<CGameObject> parent, float hp );
+    CComponentPosition( int id, std::shared_ptr<CGameObject> parent, const Vector2D& pos );
     void Run() override;
-    float GetHealth() const;
-    float GetHealthMax() const;
-    void Hurt( const float& amt );
-    void Heal( const float& amt );
-    bool GetIsAlive() const;
+    Vector2D GetPosition() const;
+    void SetPosition( const Vector2D& pos );
+    void Move( const Vector2D& pos );
+    void Move( const float x, const float y );
 private:
-    float healthMax = 0.0f;
-    float health = 0.0f;
+    Vector2D position{};
 };

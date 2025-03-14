@@ -7,9 +7,8 @@
 class CEngine
 {
 public:
-	CEngine();	
+	CEngine();
 	void Setup();
 	void Run();
-private:
-	
+private:	
 };

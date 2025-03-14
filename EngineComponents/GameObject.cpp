@@ -12,7 +12,7 @@ CGameObject::CGameObject( const int id, const EObjectType objType, const std::st
 
 void CGameObject::Run()
 {
-	printf( "RUNNING OBJECT ID: %i\n", this->instance );
+	printf( "RUNNING OBJECT #%i, Name: %s, Type: %i\n", this->GetInstance(), this->GetTag().c_str(), this->GetType());
 	return;
 }
 
@@ -24,6 +24,11 @@ int CGameObject::GetInstance() const
 std::string CGameObject::GetTag() const
 {
 	return this->tag;
+}
+
+EObjectType CGameObject::GetType() const
+{
+	return this->type;
 }
 
 bool CGameObject::AddComponent( std::shared_ptr<CComponent> component )

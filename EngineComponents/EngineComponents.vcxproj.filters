@@ -17,6 +17,10 @@
       <Filter>Objects\Components</Filter>
     </ClCompile>
     <ClCompile Include="GameObjectManager.cpp" />
+    <ClCompile Include="Vector2D.cpp" />
+    <ClCompile Include="ComponentPosition.cpp">
+      <Filter>Objects\Components</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Console.h" />
@@ -40,6 +44,11 @@
       <Filter>Objects\Components</Filter>
     </ClInclude>
     <ClInclude Include="GameObjectManager.h" />
+    <ClInclude Include="Structs.h" />
+    <ClInclude Include="Vector2D.h" />
+    <ClInclude Include="ComponentPosition.h">
+      <Filter>Objects\Components</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Objects">

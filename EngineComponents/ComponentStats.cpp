@@ -1,7 +1,21 @@
 #include "ComponentStats.h"
 
 CComponentStats::CComponentStats( int id, std::shared_ptr<CGameObject> parent )
-    : CComponent( id, parent, CompType_Stats )
+	: CComponent( id, parent, CompType_Stats )
 {
 
+}
+
+void CComponentStats::Run()
+{
+	printf( "Component STATS DbgPrint: Level: %i, ExperienceCount: %i\n", this->GetExperienceLevel(), this->GetExperiencePoints() );
+}
+
+int CComponentStats::GetExperienceLevel() const
+{
+	return this->experienceLevel;
+}
+int CComponentStats::GetExperiencePoints() const
+{
+	return this->experiencePoints;
 }
