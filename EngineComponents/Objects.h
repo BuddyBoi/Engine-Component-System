@@ -1,5 +1,9 @@
 #pragma once
 
+#include <vector>
+#include <memory>
+#include <string>
+
 enum EObjectType
 {
 	ObjType_Invalid,
@@ -24,8 +28,10 @@ enum EComponentType
 	CompType_Max,
 };
 
+class CGameObjectManager;
 class CGameObject;
 class CComponent;
 
-#include "Component.h"
 #include "GameObject.h"
+#include "Component.h"
+#include "GameObjectManager.h"

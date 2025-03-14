@@ -16,6 +16,7 @@
     <ClCompile Include="ComponentStats.cpp">
       <Filter>Objects\Components</Filter>
     </ClCompile>
+    <ClCompile Include="GameObjectManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Console.h" />
@@ -38,6 +39,7 @@
     <ClInclude Include="Components.h">
       <Filter>Objects\Components</Filter>
     </ClInclude>
+    <ClInclude Include="GameObjectManager.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Objects">

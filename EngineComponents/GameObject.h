@@ -1,10 +1,6 @@
 #pragma once
 #include "Objects.h"
 
-#include <vector>
-#include <memory>
-#include <string>
-
 class CGameObject
 {
 public:
