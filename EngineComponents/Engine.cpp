@@ -54,7 +54,34 @@ void CEngine::Run()
 
 		//tick update test
 		auto player = GameObjectManager.GetGameObject( "player" );
-		player->GetComponent<CComponentHealth>()->Hurt( 10.0f );
+		auto playerHealth = player->GetComponent<CComponentHealth>();
+		auto playerPosition = player->GetComponent<CComponentPosition>();
+		auto playerStats = player->GetComponent<CComponentStats>();
 
+		if ( !playerHealth->GetIsAlive() )
+			continue;
+
+		auto itemSword = GameObjectManager.GetGameObject( "iron_sword_1" );
+		if ( !itemSword )
+			continue;
+
+		auto itemSwordPosition = itemSword->GetComponent<CComponentPosition>();
+		if ( !itemSwordPosition )
+			continue;
+
+		float dist = itemSwordPosition->GetPosition().GetDistance( playerPosition->GetPosition() );
+		printf( "DISTANCE TO SWORD: %f\n", dist );
+
+		//TEST
+		//move player
+		if ( GetAsyncKeyState( VK_RIGHT ) )
+		{
+			playerPosition->Move( 0.50f, 0.0f );
+		}
+
+		if ( GetAsyncKeyState( VK_DOWN ) )
+		{
+			playerPosition->Move( 0.0f, 0.50f );
+		}
 	}
 }
