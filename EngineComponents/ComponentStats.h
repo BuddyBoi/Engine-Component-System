@@ -1,6 +1,5 @@
 #pragma once
 #include "Objects.h"
-#include <memory>
 
 class CComponentStats : public CComponent
 {

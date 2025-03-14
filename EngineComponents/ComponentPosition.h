@@ -1,6 +1,13 @@
 #pragma once
 #include "Objects.h"
 
+class CComponentPosition : public CComponent
+{
+public:
+private:
+    
+};
+
 class CComponentHealth : public CComponent
 {
 public:
