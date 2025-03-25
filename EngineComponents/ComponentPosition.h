@@ -1,11 +1,10 @@
 #pragma once
-#include "Objects.h"
-#include "Vector2D.h"
+#include "Components.h"
 
 class CComponentPosition : public CComponent
 {
 public:
-    CComponentPosition( int id, std::shared_ptr<CGameObject> parent, const Vector2D& pos );
+    CComponentPosition( std::shared_ptr<CGameObject> parent, const Vector2D& pos );
     void Run() override;
     Vector2D GetPosition() const;
     void SetPosition( const Vector2D& pos );

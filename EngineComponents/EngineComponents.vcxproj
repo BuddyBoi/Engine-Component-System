@@ -19,29 +19,44 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Character.cpp" />
     <ClCompile Include="Component.cpp" />
     <ClCompile Include="ComponentHealth.cpp" />
+    <ClCompile Include="ComponentInventory.cpp" />
     <ClCompile Include="ComponentPosition.cpp" />
     <ClCompile Include="ComponentStats.cpp" />
     <ClCompile Include="Console.cpp" />
+    <ClCompile Include="Container.cpp" />
     <ClCompile Include="Engine.cpp" />
+    <ClCompile Include="Entity.cpp" />
     <ClCompile Include="GameObject.cpp" />
-    <ClCompile Include="GameObjectManager.cpp" />
+    <ClCompile Include="EntityManager.cpp" />
+    <ClCompile Include="Item.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Player.cpp" />
+    <ClCompile Include="TriggerZone.cpp" />
     <ClCompile Include="Vector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Character.h" />
     <ClInclude Include="Component.h" />
     <ClInclude Include="ComponentHealth.h" />
+    <ClInclude Include="ComponentInventory.h" />
     <ClInclude Include="ComponentPosition.h" />
     <ClInclude Include="Components.h" />
     <ClInclude Include="ComponentStats.h" />
     <ClInclude Include="Console.h" />
+    <ClInclude Include="Container.h" />
     <ClInclude Include="Engine.h" />
+    <ClInclude Include="Entities.h" />
+    <ClInclude Include="Entity.h" />
     <ClInclude Include="GameObject.h" />
-    <ClInclude Include="GameObjectManager.h" />
+    <ClInclude Include="EntityManager.h" />
+    <ClInclude Include="Item.h" />
     <ClInclude Include="Objects.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Structs.h" />
+    <ClInclude Include="TriggerZone.h" />
     <ClInclude Include="Vector2D.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

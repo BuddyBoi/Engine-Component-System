@@ -1,10 +1,10 @@
 #pragma once
-#include "Objects.h"
+#include "Components.h"
 
 class CComponentHealth : public CComponent
 {
 public:
-    CComponentHealth( int id, std::shared_ptr<CGameObject> parent, float hp );
+    CComponentHealth( std::shared_ptr<CGameObject> parent, float hp );
     void Run() override;
     float GetHealth() const;
     float GetHealthMax() const;

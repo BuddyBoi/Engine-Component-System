@@ -3,13 +3,10 @@
 enum EObjectType
 {
 	ObjType_Invalid,
-	ObjType_Pawn, //controllable actor; Player character, player creature, controlable object, etc.
-	ObjType_Character, //humnoid actor
-	ObjType_Creature, //non-humanoid character actor
-	ObjType_Item, //inventory item, pickup item, static non-lootable world item(?)
-	ObjType_Container, //inventory container; i.e. chest, storage, locker, backpack, fridge, etc.
-	ObjType_Static, //static object for level decor and/or interactions
-	ObjType_Misc, //other, undetermined components
+	ObjType_Entity,
+	ObjType_World,
+	ObjType_Level,
+	ObjType_Tile,
 	ObjType_Max,
 };
 
@@ -22,4 +19,56 @@ enum EComponentType
 	CompType_Profile, //username, achivements, personalizations
 	CompType_Stats, //skills, abilites, stat points
 	CompType_Max,
+};
+
+enum EEntityType
+{
+	EntType_Invalid,
+	EntType_Player, //Player character
+	EntType_Character, //NPCs
+	EntType_Creature, //non-humanoid character
+	EntType_Item,
+	EntType_Container,
+	EntType_Projectile,
+	EntType_Static,
+	EntType_TriggerZone,
+	EntType_Max,
+};
+
+enum EItemType
+{
+	ItemType_Invalid,
+	ItemType_Weapon,
+	ItemType_Apparel,
+	ItemType_Food,
+	ItemType_Potion,
+	ItemType_Ammo,
+	ItemType_Misc,
+	ItemType_QuestItem,
+	ItemType_Max,
+};
+
+/// Entity Definition Structs
+
+struct TEntityDefinition
+{
+	std::string name = "none";
+	std::string displayName = "none";
+	bool isRanged = false;
+	float value = 0.0f;
+	float range = 0.0f;
+	float damage = 0.0f;
+	EItemType type = EItemType::ItemType_Invalid;
+};
+
+struct TItemDefinition
+{
+};
+
+struct TCharacterDefinition
+{
+};
+
+struct TProjectileDefinition
+{
 };

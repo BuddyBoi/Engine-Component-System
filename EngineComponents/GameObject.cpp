@@ -1,29 +1,13 @@
 #include "GameObject.h"
 
-CGameObject::CGameObject()
-{
-
-}
-
-CGameObject::CGameObject( const int id, const EObjectType objType, const std::string& objTag ) : instance( id ), tag(objTag), type( objType )
+CGameObject::CGameObject( const EObjectType objType ) : type( objType )
 {
 
 }
 
 void CGameObject::Run()
 {
-	printf( "RUNNING OBJECT #%i, Name: %s, Type: %i\n", this->GetInstance(), this->GetTag().c_str(), this->GetType());
 	return;
-}
-
-int CGameObject::GetInstance() const
-{
-	return this->instance;
-}
-
-std::string CGameObject::GetTag() const
-{
-	return this->tag;
 }
 
 EObjectType CGameObject::GetType() const
@@ -35,23 +19,6 @@ bool CGameObject::AddComponent( std::shared_ptr<CComponent> component )
 {
 	components.push_back( component );
 	return true;
-}
-
-bool CGameObject::RemoveComponent( const int id )
-{
-	if ( !this->components.size() )
-		return true;
-
-	for ( auto it = components.begin(); it != components.end(); ++it )
-	{
-		if ( (*it)->GetInstance() == id )
-		{
-			components.erase( it );
-			return true;
-		}
-	}
-
-	return false;
 }
 
 bool CGameObject::RemoveComponent( const EComponentType type )
@@ -71,15 +38,15 @@ bool CGameObject::RemoveComponent( const EComponentType type )
 	return false;
 }
 
-bool CGameObject::RemoveComponent( const std::string tag )
+bool CGameObject::RemoveComponent( const std::string name )
 {
 	if ( !this->components.size()
-		|| !tag.size() )
+		|| !name.size() )
 		return true;
 
 	for ( auto it = components.begin(); it != components.end(); ++it )
 	{
-		if ( (*it)->GetTag() == tag )
+		if ( (*it)->GetName() == name )
 		{
 			components.erase( it );
 			return true;
@@ -87,23 +54,6 @@ bool CGameObject::RemoveComponent( const std::string tag )
 	}
 
 	return false;
-}
-
-std::shared_ptr<CComponent> CGameObject::GetComponentPtr( const int id )
-{
-	if ( !this->components.size()
-		|| !id )
-		return nullptr;
-
-	for ( const auto& component : components )
-	{
-		if ( component->GetInstance() == id )
-		{
-			return component;
-		}
-	}
-
-	return nullptr;
 }
 
 std::shared_ptr<CComponent> CGameObject::GetComponentPtr( const EComponentType type )
@@ -124,15 +74,15 @@ std::shared_ptr<CComponent> CGameObject::GetComponentPtr( const EComponentType t
 	return nullptr;
 }
 
-std::shared_ptr<CComponent> CGameObject::GetComponentPtr( const std::string tag )
+std::shared_ptr<CComponent> CGameObject::GetComponentPtr( const std::string name )
 {
 	if ( !this->components.size()
-		|| !tag.size() )
+		|| !name.size() )
 		return nullptr;
 
 	for ( const auto& component : components )
 	{
-		if ( component->GetTag() == tag )
+		if ( component->GetName() == name )
 		{
 			return component;
 		}

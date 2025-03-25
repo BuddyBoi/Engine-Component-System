@@ -1,7 +1,7 @@
 #include "ComponentHealth.h"
 
-CComponentHealth::CComponentHealth( int id, std::shared_ptr<CGameObject> parent, float hp )
-	: CComponent( id, parent, CompType_Health )
+CComponentHealth::CComponentHealth( std::shared_ptr<CGameObject> parent, float hp )
+	: CComponent( "compHealth", parent, CompType_Health)
 {
 	this->healthMax = hp;
 	this->health = hp;

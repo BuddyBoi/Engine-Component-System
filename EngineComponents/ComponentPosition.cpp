@@ -1,7 +1,7 @@
 #include "ComponentPosition.h"
 
-CComponentPosition::CComponentPosition( int id, std::shared_ptr<CGameObject> parent, const Vector2D& pos )
-	: CComponent( id, parent, CompType_Stats ), position( pos )
+CComponentPosition::CComponentPosition( std::shared_ptr<CGameObject> parent, const Vector2D& pos )
+	: CComponent( "compPosition", parent, CompType_Stats), position(pos)
 {
 
 }

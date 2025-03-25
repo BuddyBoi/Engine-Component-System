@@ -1,10 +1,10 @@
 #pragma once
-#include "Objects.h"
+#include "Components.h"
 
 class CComponentStats : public CComponent
 {
 public:
-    CComponentStats( int id, std::shared_ptr<CGameObject> parent );
+    CComponentStats( std::shared_ptr<CGameObject> parent );
     void Run() override;
     int GetExperienceLevel() const;
     int GetExperiencePoints() const;

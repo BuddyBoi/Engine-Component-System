@@ -2,8 +2,6 @@
 #include <Windows.h>
 
 //temp global systems
-CGameObjectManager GameObjectManager;
-
 CEngine::CEngine()
 {
 
@@ -12,21 +10,9 @@ CEngine::CEngine()
 //setup objects, gameObjects list, localplayer, components, etc.
 void CEngine::Setup()
 {
-	GameObjectManager = CGameObjectManager( 1 );
-
-	//create player
-	GameObjectManager.CreateGameObject( "player", EObjectType::ObjType_Pawn, Vector2D( 10.0f, 10.0f ) );
-
-	//create enemy npcs
-	GameObjectManager.CreateGameObject( "enemy_1", EObjectType::ObjType_Character, Vector2D( 15.0f, 10.0f ) );
-	GameObjectManager.CreateGameObject( "enemy_2", EObjectType::ObjType_Character, Vector2D( 25.0f, 10.0f ) );
-	GameObjectManager.CreateGameObject( "enemy_3", EObjectType::ObjType_Character, Vector2D( 35.0f, 10.0f ) );
-
-	//create creatures
-	GameObjectManager.CreateGameObject( "wolf_1", EObjectType::ObjType_Creature, Vector2D( 10.0f, 10.0f ) );
-
-	//create items
-	GameObjectManager.CreateGameObject( "iron_sword_1", EObjectType::ObjType_Item, Vector2D( 10.0f, 15.0f ) );
+	EntityManager = CEntityManager();
+	EntityManager.InitDefinitions();
+	EntityManager.InitEntities();
 }
 
 void CEngine::Run()
@@ -39,7 +25,7 @@ void CEngine::Run()
 		Sleep( 1000 );
 		printf( "Running\n" );
 
-		for ( auto& entity : GameObjectManager.GetGameObjects() )
+		for ( auto& entity : EntityManager.GetEntityList() )
 		{
 			auto entityHealth = entity->GetComponent<CComponentHealth>();
 			if ( entityHealth )
@@ -53,7 +39,7 @@ void CEngine::Run()
 		}
 
 		//tick update test
-		auto player = GameObjectManager.GetGameObject( "player" );
+		auto player = EntityManager.GetEntity( "player" );
 		auto playerHealth = player->GetComponent<CComponentHealth>();
 		auto playerPosition = player->GetComponent<CComponentPosition>();
 		auto playerStats = player->GetComponent<CComponentStats>();
@@ -61,7 +47,7 @@ void CEngine::Run()
 		if ( !playerHealth->GetIsAlive() )
 			continue;
 
-		auto itemSword = GameObjectManager.GetGameObject( "iron_sword_1" );
+		auto itemSword = EntityManager.GetEntity( "weaponIronSword" );
 		if ( !itemSword )
 			continue;
 
