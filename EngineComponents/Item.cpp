@@ -1,10 +1,12 @@
 #include "Item.h"
 #include "Engine.h"
 
+#include <memory>
+
 CItem::CItem( const TEntityDefinition& itemData, const std::string& displayName )
 	: CEntity( itemData.name, displayName, EEntityType::EntType_Item )
 {
-	//temp
+	//temp - load definition struct
 	this->damage = itemData.range;
 	this->range = itemData.range;
 	this->isRanged = itemData.isRanged;

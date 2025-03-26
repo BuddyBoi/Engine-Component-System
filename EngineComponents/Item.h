@@ -23,4 +23,3 @@ private:
 	bool isRanged = false;
 	std::string ammoTypeName = "none"; //item id of ammo type
 };
-

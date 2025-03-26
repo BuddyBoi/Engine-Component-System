@@ -15,6 +15,33 @@ void CEngine::Setup()
 	EntityManager.InitEntities();
 }
 
+void testRunInput( const std::shared_ptr<CComponentPosition> &playerPosition )
+{
+	float moveAmount = 1.0f;
+	float moveSpeed = 5.0f;
+	float move = moveAmount * moveSpeed;
+
+	if ( GetAsyncKeyState( VK_LEFT ) )
+	{
+		playerPosition->Move( -move, 0.0f );
+	}
+
+	if ( GetAsyncKeyState( VK_RIGHT ) )
+	{
+		playerPosition->Move( move, 0.0f );
+	}	
+
+	if ( GetAsyncKeyState( VK_UP ) )
+	{
+		playerPosition->Move( 0.0f, -move );
+	}
+
+	if ( GetAsyncKeyState( VK_DOWN ) )
+	{
+		playerPosition->Move( 0.0f, move );
+	}
+}
+
 void CEngine::Run()
 {
 	this->Setup();
@@ -47,6 +74,7 @@ void CEngine::Run()
 		if ( !playerHealth->GetIsAlive() )
 			continue;
 
+		//gets first defined "weaponIronSword", usually first one created
 		auto itemSword = EntityManager.GetEntity( "weaponIronSword" );
 		if ( !itemSword )
 			continue;
@@ -60,14 +88,6 @@ void CEngine::Run()
 
 		//TEST
 		//move player
-		if ( GetAsyncKeyState( VK_RIGHT ) )
-		{
-			playerPosition->Move( 0.50f, 0.0f );
-		}
-
-		if ( GetAsyncKeyState( VK_DOWN ) )
-		{
-			playerPosition->Move( 0.0f, 0.50f );
-		}
+		testRunInput( playerPosition );		
 	}
 }

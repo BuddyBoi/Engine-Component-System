@@ -17,35 +17,32 @@ std::vector<std::shared_ptr<CEntity>> CEntityManager::GetEntityList()
 
 void CEntityManager::CreateCharacter( const std::string& defName, const Vector2D& pos, std::string displayName )
 {
-	//if no custom display name, use def name
 	if ( displayName == "none" )
 		displayName = defName;
 
 	TEntityDefinition characterData = this->entityDefinitions[defName];
 	std::shared_ptr<CCharacter> character = std::make_shared<CCharacter>( characterData, displayName );
 	
-	//create and add components
 	std::shared_ptr<CComponentHealth> characterHealth = std::make_shared<CComponentHealth>( character, 100.0f );
-	Vector2D characterPosVec( 50.0f, 50.0f );
-	std::shared_ptr<CComponentPosition> characterPosition = std::make_shared<CComponentPosition>( character, characterPosVec );
+	std::shared_ptr<CComponentPosition> characterPosition = std::make_shared<CComponentPosition>( character, pos );
 
 	character->AddComponent( characterPosition );
 	character->AddComponent( characterHealth );
 
-	//add to list
 	this->entityList.push_back( character );
 }
 
 void CEntityManager::CreateItem( const std::string& defName, const Vector2D& pos, std::string displayName )
 {
-	//if no custom display name, use def name
 	if ( displayName == "none" )
 		displayName = defName;
 
 	TEntityDefinition itemData = this->entityDefinitions[defName];
 	std::shared_ptr<CItem> item = std::make_shared<CItem>( itemData, displayName );
 
-	//add to list
+	std::shared_ptr<CComponentPosition> itemPosition = std::make_shared<CComponentPosition>( item, pos );
+	item->AddComponent( itemPosition );
+
 	this->entityList.push_back( item );
 }
 
