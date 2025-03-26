@@ -58,7 +58,7 @@ struct TEntityDefinition
 	float value = 0.0f;
 	float range = 0.0f;
 	float damage = 0.0f;
-	EItemType type = EItemType::ItemType_Invalid;
+	EEntityType type = EEntityType::EntType_Invalid;
 };
 
 struct TItemDefinition
